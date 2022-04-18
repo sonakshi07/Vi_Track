@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:launcher/intro/intro.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,7 +12,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -23,8 +25,10 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.green,
+        // primarySwatch: Colors.white,
       ),
       home: IntroPage(),
     );
   }
 }
+// flutter run --no-sound-null-safety

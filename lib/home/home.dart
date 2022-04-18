@@ -1,18 +1,33 @@
-import 'package:flutter/foundation.dart';
+// import 'package:flutter/foundation.dart';
+//import 'dart:html';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:launcher/login_page.dart';
+
+// import 'package:flutter/widgets.dart';
+
+// class HomePage extends StatelessWidget {
+//   // final webImagesPrefix = !kIsWeb ? 'assets/' : '';
+
+//   HomePage({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text("Welcome to ViTrack!"),
+//       ),
+//     );
+//   }
+// }
 
 class HomePage extends StatelessWidget {
   final restaurantName = <String>[
-    'Jims Pizza',
-    'Toms Pasta',
-    'Great Food',
-    'Amazing Chow',
-    'Tofun',
-    'Belly Excited',
-    'Ultra Chow',
-    'Delicious Intent',
-    'Food Hug',
+    'Track Pulse Rate',
+    'Track Systolic BP',
+    'Track Diastolic BP',
+    'Track Temperature',
+    'Track SpO2',
   ];
 
   // final webImagesPrefix = !kIsWeb ? 'assets/' : '';
@@ -21,9 +36,47 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return Scaffold(
+    //   appBar: AppBar(
+    //     title: Text("Welcome to ViTrack!"),
+    //   ),
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("Chowtime"),
+        title: const Text('Welcome to ViTrack!'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.login),
+            tooltip: 'Click here to Sign In',
+            onPressed: () {
+              // ScaffoldMessenger.of(context).showSnackBar(
+              //     const SnackBar(content: Text('This is a snackbar')));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => LoginPage()));
+            },
+          ),
+          // IconButton(
+          //   icon: const Icon(Icons.navigate_next),
+          //   tooltip: 'Go to the next page',
+          //   onPressed: () {
+          //     Navigator.push(context, MaterialPageRoute<void>(
+          //       builder: (BuildContext context) {
+          //         return Scaffold(
+          //           appBar: AppBar(
+          //             title: const Text('Next page'),
+          //           ),
+          //           body: const Center(
+          //             child: Text(
+          //               'This is the next page',
+          //               style: TextStyle(fontSize: 24),
+          //             ),
+          //           ),
+          //         );
+          //       },
+          //     ));
+          //   },
+          // ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -34,16 +87,19 @@ class HomePage extends StatelessWidget {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   alignment: Alignment.topCenter,
-                  image: AssetImage('assets/food/header.jpg'),
+                  image: AssetImage('assets/vitals/header.jpg'),
                 ),
               ),
-              height: 300,
+              height: 150,
               child: Align(
                 child: Padding(
                   padding: const EdgeInsets.all(18.0),
                   child: Text(
-                    "Time to eat.",
-                    style: Theme.of(context).textTheme.headline2!.copyWith(color: Colors.white),
+                    "Stay Safe!",
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline4!
+                        .copyWith(color: Colors.white),
                   ),
                 ),
                 alignment: Alignment.bottomLeft,
@@ -57,7 +113,7 @@ class HomePage extends StatelessWidget {
               physics: NeverScrollableScrollPhysics(),
               padding: EdgeInsets.all(15),
               children: List.generate(
-                  9,
+                  5,
                   (index) => Card(
                         elevation: 5,
                         child: Column(
@@ -67,21 +123,25 @@ class HomePage extends StatelessWidget {
                             Expanded(
                               child: InkWell(
                                 child: Ink.image(
-                                  image: AssetImage('assets/food/${index + 1}.jpeg'),
+                                  image: AssetImage(
+                                      'assets/vitals/${index + 1}.jpg'),
                                   fit: BoxFit.cover,
                                 ),
                                 onTap: () {
                                   showDialog(
                                       context: context,
                                       builder: (context) => AlertDialog(
-                                            title: Text("Sorry, it's just a demo"),
-                                            content: Text("You can't actually order food from here."),
+                                            title:
+                                                Text("Sorry, it's just a demo"),
+                                            content: Text(
+                                                "You can't actually track vitals here."),
                                             actions: [
                                               TextButton(
                                                   onPressed: () {
                                                     Navigator.of(context).pop();
                                                   },
-                                                  child: Text("AH THAT'S RIGHT"))
+                                                  child:
+                                                      Text("AH THAT'S RIGHT"))
                                             ],
                                           ));
                                 },
@@ -89,7 +149,8 @@ class HomePage extends StatelessWidget {
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: List.generate(5, (index) => Icon(Icons.star)),
+                              children:
+                                  List.generate(5, (index) => Icon(Icons.star)),
                             ),
                             Text(
                               restaurantName[index],

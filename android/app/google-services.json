@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "992453016621",
+    "project_id": "vitracker-60748",
+    "storage_bucket": "vitracker-60748.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992453016621:android:f367bfe1e04262e26c0ca4",
+        "android_client_info": {
+          "package_name": "com.example.launcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "992453016621-kt2aa0nss1o2u72je76anhlvigvcvohb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.launcher",
+            "certificate_hash": "cde2afefe4973beb0d3cf84653c8cb7dd92c70e1"
+          }
+        },
+        {
+          "client_id": "992453016621-lpuiu281rkv3ujqp7q52i4cggl3su2uu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQrqDjAZ46-gS8bROVZVZMGMVID5g-AFU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "992453016621-lpuiu281rkv3ujqp7q52i4cggl3su2uu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

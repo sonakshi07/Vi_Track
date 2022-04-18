@@ -1,11 +1,12 @@
-import 'dart:math';
-
+// import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:flutter/widgets.dart';
+// import 'package:google_fonts/google_fonts.dart';
+// import 'package:launcher/login_page.dart';
+
 import 'package:launcher/home/home.dart';
-import 'package:lottie/lottie.dart';
+// import 'package:lottie/lottie.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({Key? key}) : super(key: key);
@@ -33,8 +34,9 @@ class _IntroPageState extends State<IntroPage> with TickerProviderStateMixin {
         .then(
           (value) => Future.delayed(Duration(seconds: 1)).then(
             (value) => _lottieAnimation.forward().then(
-                  (value) => Navigator.of(context)
-                      .pushAndRemoveUntil(MaterialPageRoute(builder: (context) => HomePage()), (route) => false),
+                  (value) => Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                      (route) => false),
                 ),
           ),
         );
@@ -45,7 +47,8 @@ class _IntroPageState extends State<IntroPage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-        color: Color(0xFF9ae79a),
+        //color: Color(0xFFffffff),
+        color: Color(0xFF4e954e),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -53,18 +56,21 @@ class _IntroPageState extends State<IntroPage> with TickerProviderStateMixin {
               duration: transitionDuration,
               curve: Curves.fastOutSlowIn,
               style: TextStyle(
-                color: Color(0xFF4e954e),
+                //color: Color(0xFF4e954e),
+                color: Color(0xFFffffff),
                 fontSize: !expanded ? _bigFontSize : 50,
                 fontFamily: 'Montserrat',
                 fontWeight: FontWeight.w600,
               ),
               child: Text(
-                "C",
+                "V",
               ),
             ),
             AnimatedCrossFade(
               firstCurve: Curves.fastOutSlowIn,
-              crossFadeState: !expanded ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+              crossFadeState: !expanded
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
               duration: transitionDuration,
               firstChild: Container(),
               secondChild: _logoRemainder(),
@@ -82,26 +88,27 @@ class _IntroPageState extends State<IntroPage> with TickerProviderStateMixin {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          "HOWTIME",
+          "I TRACK",
           style: TextStyle(
-            color: Color(0xFF4e954e),
+            //color: Color(0xFF4e954e),
+            color: Color(0xFFffffff),
             fontSize: 50,
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.w600,
           ),
         ),
-        LottieBuilder.asset(
-          'assets/food.json',
-          onLoaded: (composition) {
-            _lottieAnimation..duration = composition.duration;
-          },
-          frameRate: FrameRate.max,
-          repeat: false,
-          animate: false,
-          height: 100,
-          width: 100,
-          controller: _lottieAnimation,
-        )
+        // LottieBuilder.asset(
+        //   'assets/food.json',
+        //   onLoaded: (composition) {
+        //     _lottieAnimation..duration = composition.duration;
+        //   },
+        //   frameRate: FrameRate.max,
+        //   repeat: false,
+        //   animate: false,
+        //   height: 100,
+        //   width: 100,
+        //   controller: _lottieAnimation,
+        // )
       ],
     );
   }
